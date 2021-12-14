@@ -1,0 +1,49 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
+<head>
+    {% include header.html %}
+    {% include mathjax_support.html %}
+</head>
+<body>
+    {% include nav.html %}
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="wrapper animated fadeIn" style="border-radius: 5px;">
+            <div class="content">
+				<button class="btn zoombtn backbtn" style="" onclick="history.back()"><i class="fa fa-chevron-left"></i></button>
+                <div class="page-title {% if page.feature %} feature {% endif %}" style="{% if page.feature %} background-size:100%; background-color: rgba(0,0,0,0.75); {% endif %}">
+                    <h1>{{ page.title }}</h1>
+                    <!-- <h4>{{ page.date | date_to_string }}</h4> -->
+                </div>
+                <h3>Description</h3>
+                {{ page.description }}<br>
+                {{ content }}
+            </div>
+        </div>
+        <!-- {% if page.comments and site.disqus_shortname %}<section id="disqus_thread" class="animated fadeInUp"></section>/#disqus_thread {% endif %} -->
+    </header>
+    {% include scripts.html %}
+    {% if site.mathjax == true %}
+    <!-- MathJax -->
+    <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    {% endif %}
+</body>
+</html>
+<style>
+.backbtn{
+    position: absolute; 
+    margin-top: 25px; 
+    margin-left: -35px;
+    height: 39px;
+    padding-top: 7px;
+}
+.page-title{
+    height: 380px;
+}
+</style>

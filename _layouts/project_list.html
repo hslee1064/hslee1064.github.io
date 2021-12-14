@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    {% include header.html %}
+</head>
+<body>
+    {% include nav.html %}
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="wrapper animated fadeIn">
+            <button class="btn zoombtn" onclick="history.back()"><i class="fa fa-chevron-left"></i></button>
+            <div class="content">
+                <div class="page-title">
+                    <h1>{{ page.title }}</h1>
+                </div>
+                <div class="post-list">
+                    {% for post in site.posts %}
+                    {% if post.layout == "project" %}
+                    <ul class="post-box" onclick="location.href='{{ site.url }}{{ post.url }}'">
+                        <li class="wow fadeInLeft" data-wow-duration="1.5s">
+                            <a class="post-title">{{ post.title }}</a>
+                            <div class="post-desc">{{ post.description }}</div>
+                            <div class="post-tags">{% for tag in post.project_tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>
+                        </li>
+                    </ul>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </header>
+    {% include scripts.html %}
+    <script src="{{ site.url }}/assets/js/wow.min.js"></script>
+    <script type="text/javascript">(new WOW).init();</script>
+</body>
+</html>
+<style>
+.page-title{
+    margin-bottom: 4rem;
+}
+.tag{
+    border-radius: 3px;
+    background-color: #fff;
+    display: inline-block;
+    border: 1px solid;
+    border-color: rgba(229,230,233,0.5);
+    padding: 2px 6px;
+    font-size: .75rem;
+    line-height: 1.8571;
+    margin-right: 5px;
+}
+.post-box li{
+    height: 130px
+}
+.post-box .post-desc, .post-box .post-tags{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    transition-property: color;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+.post-box .post-tags{
+    margin-left: -3px;
+    margin-top: 5px;
+}
+.post-box:hover{
+    cursor: pointer;
+}
+.post-box:hover li{
+    color: #999 !important;
+}
+.post-box:hover li .post-title{
+    color: #FF4136 !important;
+}
+</style>

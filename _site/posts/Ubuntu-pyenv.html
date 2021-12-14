@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
+<head>
+        <meta charset="UTF-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <title>pyenv &#8211; </title>
+    <meta name="description" content="blog">
+    <meta name="keywords" content="Python Note">
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="/assets/img/logo.png">
+    <meta name="twitter:title" content="pyenv">
+    <meta name="twitter:description" content="">
+    
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="pyenv">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="/posts/Ubuntu-pyenv">
+    <meta property="og:site_name" content="">
+    <meta property="og:image" content="/assets/img/logo.png">
+    
+    
+    
+    <link rel="canonical" href="/posts/Ubuntu-pyenv">
+    <link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" Feed">
+    <!-- Handheld -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- JS -->
+    <script src="/assets/js/modernizr-3.3.1.custom.min.js"></script>
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon-precomposed.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <!-- Background Image -->
+    
+    
+    
+    <style type="text/css">body {background-image:url(/assets/img/placeholder-big.jpg);  background-repeat: no-repeat; background-size: cover; }</style>
+    
+    <!-- Post Feature Image -->
+    
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+    equationNumbers: {
+      autoNumber: "AMS"
+    }
+},
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  alert("Math Processing Error: "+message[1]);
+});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+  alert("Math Processing Error: "+message[1]);
+});
+</script>
+<script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</head>
+<body>
+    	<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+		<button class="dl-trigger">Open Menu</button>
+		<ul class="dl-menu">
+			<li><a href="/">Home</a></li>
+			<li><a href="/about/en">About</a></li>
+			<li><a href="/projects">Projects</a></li>
+			<li><a href="/posts/">Posts</a></li>
+		</ul><!-- /.dl-menu -->
+	</nav><!-- /.dl-menuwrapper -->
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="wrapper animated fadeIn">
+            <button class="btn zoombtn" onclick="history.back()"><i class="fa fa-chevron-left"></i></button>
+            <div class="content">
+                <div class="page-title ">
+                    <h1>pyenv</h1>
+                    <!-- <h4>02 Jul 2018</h4> -->
+                    
+                    <p class="reading-time">
+                      <i class="fa fa-clock-o"></i>
+                      
+
+Reading time ~1 minute
+
+                    </p><!-- /.entry-reading-time -->
+                    
+                </div>
+                <h4 id="pyenv">pyenv</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
+libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
+xz-utils tk-dev
+
+curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+</code></pre></div></div>
+
+<h4 id="path-설정">path 설정</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi ~/.bashrc
+export PATH = $PATH:/home:/var
+export PATH="/root/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+source ~/.bashrc
+</code></pre></div></div>
+
+<h4 id="pyenv-가상환경-만들기">pyenv 가상환경 만들기</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pyenv install --list
+pyenv install 3.6.4
+pyenv global 3.6.4
+pyenv versions
+</code></pre></div></div>
+
+<h4 id="pyenv-가상환경-적용">pyenv 가상환경 적용</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pyenv virtualenv 3.6.4 sample-env
+pyenv local sample-env
+pyenv shell uwsgi-env
+</code></pre></div></div>
+
+                <div class="entry-meta">
+                <br>
+<hr>
+
+<div style="width:100%">
+<div style="width:10%;float:left;">
+    <span style="color:#999999;">출처</span>
+</div>
+<div style="width:90%;float:left;">
+
+</div>
+<span style="color:black;"></span>
+<span class="refer-tags">
+</span>
+</div>
+
+<span class="entry-tags"><a href="/tags/#Python Note" title="Pages tagged Python Note" class="tag"><span class="term">Python Note</span></a></span>
+<div style="clear:both"></div>
+
+                </div>
+            </div>
+        </div>
+        <!-- <section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread --> -->
+    </header>
+        <!-- JS -->
+    <script src="/assets/js/jquery-1.12.0.min.js"></script>
+    <script src="/assets/js/jquery.dlmenu.min.js"></script>
+    <script src="/assets/js/jquery.goup.min.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/js/jquery.fitvid.min.js"></script>
+    <script src="/assets/js/scripts.js"></script>
+    
+    
+    <!-- MathJax -->
+    <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</body>
+</html>

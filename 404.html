@@ -1,0 +1,29 @@
+---
+title: "404"
+permalink: /404
+comments: false
+---
+<!DOCTYPE html>
+<head>
+    {% include header.html %}
+</head>
+<body>
+    {% include nav.html %}
+    <!-- Header -->
+    <header class="header" role="banner">
+      <div class="wrapper animated fadeIn">
+        <button class="btn zoombtn" onclick="history.back()"><i class="fa fa-chevron-left"></i></button>
+        <div class="content">
+          <div style="clear:both" class="page-title {% if page.feature %} feature {% endif %}">
+            <h1>404 ERROR</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    {% include scripts.html %}
+    {% if site.mathjax == true %}
+    <!-- MathJax -->
+    <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    {% endif %}
+</body>
+</html>
