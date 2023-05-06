@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ML_note #6 Overview"
-date: 2017-12-22
+date: 2017-12-30
 excerpt: "Machine Learning"
 tags:
 - Deep Learning
