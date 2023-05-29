@@ -2,6 +2,7 @@
 layout: post
 title: "matplotlib"
 date: 2018-03-05
+description: "..."
 excerpt: ""
 tags:
 - Python Note
