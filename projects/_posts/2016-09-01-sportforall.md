@@ -25,7 +25,7 @@ Deployed the application and recorded 1000+ downloads
 ![Homepage Img](../assets/img/project/sportsfactory2.png)
 ![Homepage Img](../assets/img/project/sportsfactory3.png)
 ![Homepage Img](../assets/img/project/sportsfactory4.png)
-{% include gallery caption="service terminated"%}
+{% include gallery %}
 
 ### References
-[https://github.com/hlee118/SportForAll](https://github.com/hlee118/SportForAll)
+[OUT OF SERVICE / GITHUB SOURCE CODE](https://github.com/hlee118/SportForAll)

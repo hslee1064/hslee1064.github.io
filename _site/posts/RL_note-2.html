@@ -21,13 +21,13 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="RL note #2">
     <meta property="og:description" content="Machine Learning">
-    <meta property="og:url" content="/posts/RL-note-2">
+    <meta property="og:url" content="/posts/RL_note-2">
     <meta property="og:site_name" content="">
     <meta property="og:image" content="/assets/img/logo.png">
     
     
     
-    <link rel="canonical" href="/posts/RL-note-2">
+    <link rel="canonical" href="/posts/RL_note-2">
     <link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" Feed">
     <!-- Handheld -->
     <meta name="HandheldFriendly" content="True">
@@ -96,7 +96,8 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
             <div class="content">
                 <div class="page-title ">
                     <h1>RL note #2</h1>
-                    <h4>31 Dec 2017</h4>
+                    <h4>Created At: 31 Dec 2017</br>
+                    Modified At: 20 Jun 2023</h4>
                 </div>
                 <h1 id="강화학습">강화학습</h1>
 
@@ -130,26 +131,16 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 <h3 id="동적-계획법을-통한-강화학습">동적 계획법을 통한 강화학습</h3>
 <ul>
   <li>가치(Q함수) update 시에 사용</li>
-  <li>V 	=  $E[𝑹_𝟏  + γ 𝑹_𝟐 + γ^𝟐 𝑹_𝟑   + … + γ^{𝒏−𝟏} 𝑹_𝒏]$<br />
-  	=   $E[𝑹_𝟏 + γV’]$</li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>q<em>(s)  	= E[R + γ max q</em> (𝑺_(𝒕+𝟏), a’)</td>
-          <td>𝑺_𝒕 = s, 𝑨_𝒕=𝒂 ]</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
+  <li>V = $E[𝑹_𝟏  + γ 𝑹_𝟐 + γ^𝟐 𝑹_𝟑   + … + γ^{𝒏−𝟏} 𝑹_𝒏]$
+= $E[𝑹_𝟏 + γV’]$</li>
   <li>벨만 기대 방정식 -&gt; 정책 이터레이션</li>
   <li>벨만 최적 방정식 -&gt; 가치 이터레이션</li>
 </ul>
 
 <h3 id="정책-평가와-정책-발전">정책 평가와 정책 발전</h3>
 <ul>
-  <li>정책평가 = Q함수 값들을 이용해 현재 노드 가치 update</li>
-  <li>정책발전(탐욕정책) = Q함수값들을 이용해 현재 노드의 정책 update</li>
+  <li>정책평가(Evaluation) = Q함수 값들을 이용해 현재 노드 가치 update</li>
+  <li>정책발전(Improvement) = Q함수 값들을 이용해 현재 노드의 정책 update</li>
 </ul>
 
 <h3 id="정책-이터레이션">정책 이터레이션</h3>
@@ -162,23 +153,16 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 <ul>
   <li>정책 발전이 존재하지 않음</li>
   <li>평가 -&gt; 평가 -&gt;  … -&gt; 평가 -&gt; <strong>행동</strong></li>
-  <li>평가시 정책과 상관없이 최대Q함수로 가치 update</li>
+  <li>평가시 정책과 상관없이 최대 Q함수로 가치 update</li>
 </ul>
-
-<p class="notice">Q : 정책 이터레이션도 탐욕정책을 취하기에 가장 큰 Q함수를 가진 방향의 정책만을 취하게 되는데 그러면 가치 이터레이션과 동일하다?<br />
-A : 정책 이터레이션은 정책이 명확히 명시되어 있어 그 정책에 따라서만 발전한다.<br />
-하지만 가치 이터레이션은 정책이 명확히 명시되어 있지 않고 최대 Q함수로만 발전된다.</p>
 
 <hr />
 
 <h3 id="문제점">문제점</h3>
 <ul>
-  <li>환경에 대한 정보부족 문제</li>
+  <li>환경에 대한 정보 부족 문제</li>
   <li>계산복잡도가 높다는 문제</li>
 </ul>
-
-<hr />
-
 
                 <div class="entry-meta">
                 <br>

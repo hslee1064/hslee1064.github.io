@@ -22,7 +22,7 @@ Deployed the application and recorded 500+ downloads
 ../assets/img/project/weddingbox2.png
 ../assets/img/project/weddingbox3.png
 {% endcapture %}
-{% include gallery images=images caption="service terminated" cols=3 %}
+{% include gallery images=images cols=3 %}
 
 ### References
-[https://github.com/hlee118/WeddingBox](https://github.com/hlee118/WeddingBox)
+[OUT OF SERVICE / GITHUB SOURCE CODE](https://github.com/hlee118/WeddingBox)

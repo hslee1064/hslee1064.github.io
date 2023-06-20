@@ -18,7 +18,7 @@ HTML, CSS, JavaScript
 Completed the contract
 
 ### Preview
-See reference
+...
 
 ### References
 [http://mementomori.co.kr](http://mementomori.co.kr)

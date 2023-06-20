@@ -21,13 +21,13 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="RL note #4">
     <meta property="og:description" content="Machine Learning">
-    <meta property="og:url" content="/posts/RL-note-4">
+    <meta property="og:url" content="/posts/RL_note-4">
     <meta property="og:site_name" content="">
     <meta property="og:image" content="/assets/img/logo.png">
     
     
     
-    <link rel="canonical" href="/posts/RL-note-4">
+    <link rel="canonical" href="/posts/RL_note-4">
     <link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" Feed">
     <!-- Handheld -->
     <meta name="HandheldFriendly" content="True">
@@ -96,7 +96,8 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
             <div class="content">
                 <div class="page-title ">
                     <h1>RL note #4</h1>
-                    <h4>31 Dec 2017</h4>
+                    <h4>Created At: 31 Dec 2017</br>
+                    Modified At: 20 Jun 2023</h4>
                 </div>
                 <h1 id="강화학습">강화학습</h1>
 
@@ -216,20 +217,6 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
   </li>
 </ul>
 
-<p class="notice">문제<br />
-현재 정책에 대한 정답값이 없음<br />
-cost의 계산이 불가<br /><br />
-해결책<br />
-각 위치의 가치함수(감가율이 계산된 보상값들의 합) = A<br />
-각 위치에서의 행동에 해당하는 정책값 = B<br />
-cost = - log(B) * A<br /><br />
-왜냐하면…<br />
-정책신경망 업데이트 방식 : Q = Q + 학습속도*(cost)’<br />
-cost = 정책 * q함수 (Richard Sutton의 논문)<br />
-cost’ = 정책’ * q함수<br />
-cost’ = (정책’/정책) * 가치함수 =&gt;  because. 가치함수 = 정책 ** q함수 (기존식)<br />
-cost’ = (log(정책))’ * 가치함수<br />
-cost’ = (log(정책))’ * (감가율이 계산된 보상의 합)</p>
 <p><code class="language-plaintext highlighter-rouge">계산복잡도 문제 해결</code></p>
 
                 <div class="entry-meta">
