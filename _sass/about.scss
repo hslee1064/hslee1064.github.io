@@ -32,8 +32,15 @@ $career_top_height   : 18px;
     height:$career_top_height;
   }
 
+  .content_date_elapsed{
+    font-size:12px;
+    clear:left;
+    float:right;
+    color:$greycolor;
+  }
+
   .content_subname{
-    clear:both;
+    clear:left;
     color:$greycolor;
   }
 

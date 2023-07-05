@@ -1,8 +1,4 @@
-<style>
-
-</style>
 <div id="about">
-
   <!-- Introduction -->
   <div class="section">
     <div class="section_content">
@@ -14,6 +10,13 @@
   <!-- Education -->
   <div class="section">
     <div class="section_title">Education</div>
+    <div class="section_content">
+      <div class="content_name">Korea University, Seoul, Korea</div>
+      <div class="content_date">Mar 2022 ~ Aug 2024</div>
+      <div class="content_subname">Master's Degree in Artificial Intelligent</div>
+      <div class="content_detail">
+      </div>
+    </div>
     <div class="section_content">
       <div class="content_name">Hongik University, Seoul, Korea</div>
       <div class="content_date">Mar 2012 ~ Feb 2020</div>
@@ -32,45 +35,25 @@
 
   <!-- Career -->
   <div class="section">
-    <div class="section_title">Career</div>
+    <div class="section_title career">Career</div>
     <div class="section_content">
       <div class="content_name">Kakao Enterprise</div>
-      <div class="content_date">Jun 2020 ~ Present</div>
-      <div class="content_subname">ML Platform Developer</div>
-      <div class="content_detail">
-        - Optimized machine learning models and made high speed inference server<br>
-        - Developed API servers and data pipelines with Kubernetes cluster<br>
-        - Projects: <a href="/projects/oasys">Oasys</a><br>
-      </div>
-    </div>
+      <div class="content_date latest">Jun 2020 ~ Present</div>
+      <div class="content_date_elapsed latest"></div>
+      <div class="content_subname">ML Engineer</div>
+      <div class="content_detail" style="white-space: pre-line">ML Platform Team
+        - Developed the MLOps platform that helps researchers to manage their ML research
+        - Made ML inference environment that users can manage models and servers
+        - Created CLI and SDK interfaces to allow users to manage their ML workloads
+        - Operated Prometheus monitoring, alert and EFK logging systems
+        - Managed Infiniband GPU clusters ensuring reliable operations
 
-    <div class="section_content">
-      <div class="content_name">SportsFactory</div>
-      <div class="content_date">Sep 2016 ~ Feb 2017</div>
-      <div class="content_subname">Full Stack Developer</div>
-      <div class="content_detail">
-        - Developed a hybrid mobile application that provides fitness and sports information<br>
-        - Projects: <a href="/projects/sportforall">SportForAll</a><br>
-      </div>
-    </div>
-
-    <div class="section_content">
-      <div class="content_name">Mappetizer</div>
-      <div class="content_date">Jun 2014 ~ Nov 2014</div>
-      <div class="content_subname">Android Developer</div>
-      <div class="content_detail">
-        - Developed an Android application that provides wedding social network services<br>
-        - Projects: <a href="/projects/weddingbox">WeddingBox</a><br>
-      </div>
-    </div>
-
-    <div class="section_content">
-      <div class="content_name">TrendTok</div>
-      <div class="content_date">Oct 2013 ~ Dec 2013</div>
-      <div class="content_subname">Web Developer</div>
-      <div class="content_detail">
-        - Developed web applications for clients<br>
-        - Projects: <a href="/projects/mementomori">Mementomori</a><br>
+        Knowledge Graph AI Team
+        - Developed ML services based on knowledge graph 
+        - Made ML data pipeline and inference server in Kubernetes cluster
+        - Enhanced batch process throughput with structured data pipeline
+        - Improved TPS with multiprocessing and Triton Inference Server
+        - Projects: <a href="/projects/oasys">OASYS</a>
       </div>
     </div>
   </div>
@@ -99,16 +82,22 @@
       </div>
     </div>
   </div>
-
-  <!-- Skill -->
-  <!-- <div class="section">
-    <div class="section_title">Skills</div>
-    <div class="section_content">
-      <div class="content_name">Programming</div>
-      <div class="content_date"></div>
-      <div class="content_subname"></div>
-      <div class="content_detail">
-      </div>
-    </div>
-  </div> -->
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+  // Calculate elasted date of latest career
+  today = new Date()
+  content_date = $('.content_date.latest')
+  content_date = content_date.text().split(' ')
+  content_date = Date.parse('01' + content_date[0] + ' ' + content_date[1]);
+  console.log(content_date)
+
+  diff_date = Math.ceil((today - content_date) / (24 * 60 * 60 * 1000))
+  console.log(diff_date)
+
+  years = Math.floor(diff_date / 365)
+  years_remainder = diff_date % 365
+  months = Math.ceil(years_remainder / 30)
+  $('.content_date_elapsed.latest').text('(' + years + ' years ' + months + ' months)')
+</script>

@@ -1,6 +1,8 @@
 ---
 layout: project
-title:  "WeddingBox"
+title:  WeddingBox
+company: Mappetizer (out of business)
+project_date: 2014-06 ~ 2014-11
 description: This is an Android application that provides wedding social network and mobile invitation service. Tree developers participated in this project, and I was in charged of Android application development.
 project_tags: ["Android Application", "Java"]
 feature: ../assets/img/project/weddingbox0.png
@@ -25,4 +27,4 @@ Deployed the application and recorded 500+ downloads
 {% include gallery images=images cols=3 %}
 
 ### References
-[OUT OF SERVICE / GITHUB SOURCE CODE](https://github.com/hlee118/WeddingBox)
+[github source code](https://github.com/hlee118/WeddingBox) (out of service)

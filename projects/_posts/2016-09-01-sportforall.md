@@ -1,7 +1,8 @@
 ---
 layout: project
 title:  "SportForAll"
-date:   2016-01-01
+company: SportsFactory (out of business)
+project_date: 2016-09 ~ 2017-02
 description: This is a hybrid application that provides fitness and sports information. Five developers participated in this project, and I designed and developed the application structure as a development team leader.
 project_tags: ["Hybrid Mobile Application", "Spring", "Java"]
 feature: ../assets/img/project/sportsfactory1.jpg
@@ -28,4 +29,4 @@ Deployed the application and recorded 1000+ downloads
 {% include gallery %}
 
 ### References
-[OUT OF SERVICE / GITHUB SOURCE CODE](https://github.com/hlee118/SportForAll)
+[github source code](https://github.com/hlee118/SportForAll) (out of service)
