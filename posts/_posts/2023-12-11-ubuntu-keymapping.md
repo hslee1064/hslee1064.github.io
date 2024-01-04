@@ -9,13 +9,13 @@ tags:
 comments: true
 ---
 ### Abstract
-- 회사에서 맥은 안주고 윈도우는 보안도 너무 많아서 우분투 세팅 후기
-- 우분투에서 맥과 같은 환경을 만드는 것을 목표로 함
+- 회사에서 맥은 안주고 윈도우는 보안도 너무 많아서 우분투 세팅 시작
+- 우분투를 맥과 똑같은 환경으로 만드는 것을 목표로 함
 
 ### Capslock to 한영
 - 설정 -> 키보드 -> 입력 소스 -> 한국어 -> 언어 전환 변경
 
-### 키크론핑 키 매핑
+### 키크론핑 키 매핑똑
 - Pro 버전 구입하여 VIA 이용하여 키매핑
     - Ctrl -> Alt
     - Win -> Ctrl
@@ -29,7 +29,7 @@ comments: true
 ### 터미널 바로가기 설정
 - 복사: Ctrl + c
 - 붙여넣기: Ctrl + v
-
+작
 ### stty, keybind 사용
 - stty, keybind 등을 적용하고자 함 
 - stty: http://coffeenix.net/doc/shell_programming/shell542.html
