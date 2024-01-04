@@ -29,8 +29,8 @@ comments: true
 ### 터미널 바로가기 설정
 - 복사: Ctrl + c
 - 붙여넣기: Ctrl + v
-작
-### stty, keybind 사용
+
+### 키매핑 - stty, keybind
 - stty, keybind 등을 적용하고자 함 
 - stty: http://coffeenix.net/doc/shell_programming/shell542.html
 - Keybind: https://github.com/rothgar/mastering-zsh/blob/master/docs/helpers/bindkey.md
@@ -41,7 +41,7 @@ bindkey -s '^[c' '^c'
 ```
 - 결론적으로는 둘 다 잘 안됨
 
-### keyd 사용
+### 키매핑 - keyd
 - keyd 설치
 - https://github.com/rvaiya/keyd
 
