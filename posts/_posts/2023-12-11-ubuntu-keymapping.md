@@ -56,3 +56,9 @@ leftalt = oneshot(alt)
 [alt:C]
 c = C-S-c
 ```
+
+### 키보드 타이핑 속도 변경
+- xset 이용했고 체감상 185 정도가 타이핑 속도 대비 키에러 가장 적은 느낌
+```bash
+xset r rate 185
+```
