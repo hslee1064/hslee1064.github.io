@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Model Context Protocol"
-date: 2023-12-11
+date: 2024-11-28
 description: "회사에서 Model Context Protocol 리뷰가 필요해서 정리"
 excerpt: ""
 tags:
