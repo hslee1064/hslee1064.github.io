@@ -41,7 +41,7 @@ comments: true
     
 
 ### Client Sample Code
-```
+```python
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 from mcp.types import AnyUrl
@@ -89,7 +89,7 @@ if __name__ == "__main__":
 ```
 
 ### Tool Server Sample Code
-```
+```python
 from mcp.server import Server
 from mcp import Tool
 from mcp.types import TextContent, ImageContent, EmbeddedResource
@@ -155,7 +155,7 @@ if __name__ == "__main__":
 ```
 
 ### Resource Server Sample Code
-```
+```python
 from mcp.server import Server
 from mcp import Tool
 from mcp.types import AnyUrl, FileUrl
