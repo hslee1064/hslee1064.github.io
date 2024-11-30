@@ -45,17 +45,17 @@ bindkey -s '^[c' '^c'
 ### 키매핑 - keyd
 - keyd 설치
 - https://github.com/rvaiya/keyd
-```bash
-# /etc/keyd/default.conf
-[ids]
-*
+    ```bash
+    # /etc/keyd/default.conf
+    [ids]
+    *
 
-[main]
-leftalt = oneshot(alt)
+    [main]
+    leftalt = oneshot(alt)
 
-[alt:C]
-c = C-S-c
-```
+    [alt:C]
+    c = C-S-c
+    ```
 
 ### 키보드 타이핑 속도 변경
 - xset 이용했고 체감상 185 정도가 타이핑 속도 대비 키에러 가장 적은 느낌
