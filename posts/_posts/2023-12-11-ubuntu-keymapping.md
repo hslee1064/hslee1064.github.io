@@ -45,7 +45,6 @@ bindkey -s '^[c' '^c'
 ### 키매핑 - keyd
 - keyd 설치
 - https://github.com/rvaiya/keyd
-
 ```bash
 # /etc/keyd/default.conf
 [ids]
