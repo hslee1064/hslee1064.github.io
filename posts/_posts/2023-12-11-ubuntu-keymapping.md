@@ -15,7 +15,8 @@ comments: true
 ### Capslock to 한영
 - 설정 -> 키보드 -> 입력 소스 -> 한국어 -> 언어 전환 변경
 
-### 키크론핑 키 매핑똑
+### 키크론 VIA
+- https://keychron.kr/via/
 - Pro 버전 구입하여 VIA 이용하여 키매핑
     - Ctrl -> Alt
     - Win -> Ctrl
