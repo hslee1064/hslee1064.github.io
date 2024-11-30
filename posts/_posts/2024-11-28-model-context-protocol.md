@@ -210,3 +210,6 @@ https://github.com/modelcontextprotocol/servers
 
 ### Example
 https://medium.com/@shuvro_25220/is-anthropics-model-context-protocol-mcp-the-interoperability-standard-we-ve-been-waiting-for-f2fe9e38110c
+
+### Image Test
+![Image Test](_images/diple0.png)
