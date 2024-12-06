@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Clean Code Review"
-date: 2024-11-28
+title: "클린코드 리뷰"
+date: 2024-05-24
 description: "회사에서 클린코드 리뷰가 필요해서 정리"
 excerpt: ""
 tags:
