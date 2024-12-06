@@ -27,7 +27,7 @@ comments: true
 - **Clients** maintain 1:1 connections with servers, inside the host application
 - **Servers** provide context, tools, and prompts to clients
 
-![image](../assets/img/post/스크린샷 2024-12-01 오후 7.25.55.png)
+![image](../assets/img/post/model_context_protocol_1.png)
 
 
 ## **Features**
