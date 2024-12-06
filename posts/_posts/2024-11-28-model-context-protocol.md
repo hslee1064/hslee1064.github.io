@@ -27,6 +27,9 @@ comments: true
 - **Clients** maintain 1:1 connections with servers, inside the host application
 - **Servers** provide context, tools, and prompts to clients
 
+![image](../assets/img/post/스크린샷 2024-12-01 오후 7.25.55.png)
+
+
 ## **Features**
 
 ### Servers:
@@ -210,6 +213,3 @@ https://github.com/modelcontextprotocol/servers
 
 ### Example
 https://medium.com/@shuvro_25220/is-anthropics-model-context-protocol-mcp-the-interoperability-standard-we-ve-been-waiting-for-f2fe9e38110c
-
-### Image Test
-![Image Test](_images/diple0.png)

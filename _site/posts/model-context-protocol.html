@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
+<head>
+        <meta charset="UTF-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <title>Model Context Protocol &#8211; </title>
+    <meta name="description" content="회사에서 Model Context Protocol 리뷰가 필요해서 정리">
+    <meta name="keywords" content="LLM">
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="/assets/img/logo.png">
+    <meta name="twitter:title" content="Model Context Protocol">
+    <meta name="twitter:description" content="">
+    
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Model Context Protocol">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="/posts/model-context-protocol">
+    <meta property="og:site_name" content="">
+    <meta property="og:image" content="/assets/img/logo.png">
+    
+    
+    
+    <link rel="canonical" href="/posts/model-context-protocol">
+    <link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" Feed">
+    <!-- Handheld -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- JS -->
+    <script src="/assets/js/modernizr-3.3.1.custom.min.js"></script>
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon-precomposed.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <!-- Background Image -->
+    
+    
+    
+    <style type="text/css">body {background-image:url(/assets/img/placeholder-big.jpg);  background-repeat: no-repeat; background-size: cover; }</style>
+    
+    <!-- Post Feature Image -->
+    
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+    equationNumbers: {
+      autoNumber: "AMS"
+    }
+},
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  alert("Math Processing Error: "+message[1]);
+});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+  alert("Math Processing Error: "+message[1]);
+});
+</script>
+<script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</head>
+<body>
+    	<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+		<button class="dl-trigger">Open Menu</button>
+		<ul class="dl-menu">
+			<li><a href="/">Home</a></li>
+			<li><a href="/about/en">About</a></li>
+			<li><a href="/projects">Projects</a></li>
+			<li><a href="/posts/">Posts</a></li>
+		</ul><!-- /.dl-menu -->
+	</nav><!-- /.dl-menuwrapper -->
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="wrapper animated fadeIn">
+            <button class="btn zoombtn" onclick="history.back()"><i class="fa fa-chevron-left"></i></button>
+            <div class="content">
+                <div class="page-title ">
+                    <h1>Model Context Protocol</h1>
+                    <h4>Created At: 28 Nov 2024</h4>
+                    <!-- Modified At: 01 Dec 2024 -->
+                </div>
+                <h2 id="abstract">Abstract</h2>
+<ul>
+  <li>회사에서 Model Context Protocol 리뷰가 필요해서 정리</li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<ul>
+  <li>Claude App, LLM App, IDE 등 호스트와 외부 데이터 및 도구 간의 통합을 가능하게 하는 프로토콜</li>
+  <li>LLM이 컨텍스트 정보를 잘 사용할 수 있도록 도움을 주는 클라이언트
+    <ul>
+      <li><strong>(Server) Resources</strong>: Text, Image, PDF, Audio, Video 등</li>
+      <li><strong>(Server) Prompts</strong>: Prompt 템플릿</li>
+      <li><strong>(Server) Tools</strong>: sqlite, git, google map, slack, custom tool 등</li>
+      <li><strong>(Client) Sampling:</strong> 다양한 서버 정보를 취사선택</li>
+    </ul>
+  </li>
+  <li>JSON-RPC 2.0을 이용한 메세지 전달</li>
+  <li>Language Server Protocol 이라는 프로그래밍 개발 지원 프로토콜에서 영감을 받음</li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+<ul>
+  <li><strong>Hosts</strong> are LLM applications (like Claude Desktop or IDEs) that initiate connections</li>
+  <li><strong>Clients</strong> maintain 1:1 connections with servers, inside the host application</li>
+  <li><strong>Servers</strong> provide context, tools, and prompts to clients</li>
+</ul>
+
+<p><img src="../assets/img/post/스크린샷 2024-12-01 오후 7.25.55.png" alt="image" /></p>
+
+<h2 id="features"><strong>Features</strong></h2>
+
+<h3 id="servers">Servers:</h3>
+
+<ul>
+  <li><strong>Resources</strong>: Context and data, for the user or the AI model to use</li>
+  <li><strong>Prompts</strong>: Templated messages and workflows for users</li>
+  <li><strong>Tools</strong>: Functions for the AI model to execute</li>
+</ul>
+
+<h3 id="clients">Clients</h3>
+
+<ul>
+  <li><strong>Sampling</strong>: Server-initiated agentic behaviors and recursive LLM interactions</li>
+</ul>
+
+<h3 id="client-sample-code">Client Sample Code</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">mcp</span> <span class="kn">import</span> <span class="n">ClientSession</span><span class="p">,</span> <span class="n">StdioServerParameters</span>
+<span class="kn">from</span> <span class="n">mcp.client.stdio</span> <span class="kn">import</span> <span class="n">stdio_client</span>
+<span class="kn">from</span> <span class="n">mcp.types</span> <span class="kn">import</span> <span class="n">AnyUrl</span>
+
+<span class="c1"># Create server parameters for stdio connection
+</span><span class="n">server_params</span> <span class="o">=</span> <span class="nc">StdioServerParameters</span><span class="p">(</span>
+    <span class="n">command</span><span class="o">=</span><span class="sh">"</span><span class="s">uv</span><span class="sh">"</span><span class="p">,</span>
+    <span class="c1"># args=["--directory", "/Users/lee/Documents/mcp", "run", "tool_server.py"],
+</span>    <span class="c1"># args=["--directory", "/Users/lee/Documents/mcp", "run", "resource_server.py"],
+</span>    <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="sh">"</span><span class="s">--directory</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">/Users/lee/Documents/mcp</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">run</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">prompt_server.py</span><span class="sh">"</span><span class="p">],</span>
+    <span class="n">env</span><span class="o">=</span><span class="bp">None</span> <span class="c1"># Optional environment variables
+</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="nf">stdio_client</span><span class="p">(</span><span class="n">server_params</span><span class="p">)</span> <span class="nf">as </span><span class="p">(</span><span class="n">read</span><span class="p">,</span> <span class="n">write</span><span class="p">):</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="nc">ClientSession</span><span class="p">(</span><span class="n">read</span><span class="p">,</span> <span class="n">write</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+            <span class="c1"># Initialize the connection
+</span>            <span class="k">await</span> <span class="n">session</span><span class="p">.</span><span class="nf">initialize</span><span class="p">()</span>
+
+            <span class="c1"># List available resources
+</span>            <span class="c1"># resources = await session.list_resources()
+</span>
+            <span class="c1"># List available prompts
+</span>            <span class="c1"># prompts = await session.list_prompts()
+</span>
+            <span class="c1"># List available tools
+</span>            <span class="c1"># tools = await session.list_tools()
+</span>            <span class="c1"># print(tools)
+</span>
+            <span class="c1"># Read a resource
+</span>            <span class="c1"># resource = await session.list_resources()
+</span>            <span class="c1"># print(resource)
+</span>
+            <span class="c1"># Call a tool
+</span>            <span class="c1"># result = await session.call_tool("get_heartbeat", arguments={"user": "Hyunsik Lee"})
+</span>            <span class="c1"># print(result)
+</span>
+            <span class="c1"># Get a prompt
+</span>            <span class="n">prompt</span> <span class="o">=</span> <span class="k">await</span> <span class="n">session</span><span class="p">.</span><span class="nf">get_prompt</span><span class="p">(</span><span class="sh">"</span><span class="s">git-commit</span><span class="sh">"</span><span class="p">,</span> <span class="n">arguments</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">arg1</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">value</span><span class="sh">"</span><span class="p">})</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+        
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="n">asyncio</span>
+    <span class="n">asyncio</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="nf">run</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h3 id="tool-server-sample-code">Tool Server Sample Code</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">mcp.server</span> <span class="kn">import</span> <span class="n">Server</span>
+<span class="kn">from</span> <span class="n">mcp</span> <span class="kn">import</span> <span class="n">Tool</span>
+<span class="kn">from</span> <span class="n">mcp.types</span> <span class="kn">import</span> <span class="n">TextContent</span><span class="p">,</span> <span class="n">ImageContent</span><span class="p">,</span> <span class="n">EmbeddedResource</span>
+<span class="kn">import</span> <span class="n">json</span>
+
+<span class="c1"># Create a server instance
+</span><span class="n">app</span> <span class="o">=</span> <span class="nc">Server</span><span class="p">(</span><span class="sh">"</span><span class="s">heartbeat-server</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="nd">@app.list_tools</span><span class="p">()</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">list_tools</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Tool</span><span class="p">]:</span>
+    <span class="sh">"""</span><span class="s">List available tools.</span><span class="sh">"""</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="nc">Tool</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="sh">"</span><span class="s">get_heartbeat</span><span class="sh">"</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">Get a heartbeat</span><span class="sh">"</span><span class="p">,</span>
+            <span class="n">inputSchema</span><span class="o">=</span><span class="p">{</span>
+                <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">object</span><span class="sh">"</span><span class="p">,</span>
+                <span class="sh">"</span><span class="s">properties</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">,</span>
+                        <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user name</span><span class="sh">"</span>
+                    <span class="p">},</span>
+                <span class="p">},</span>
+                <span class="sh">"</span><span class="s">required</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+    <span class="p">]</span>
+    
+<span class="nd">@app.call_tool</span><span class="p">()</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">call_tool</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">arguments</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">TextContent</span> <span class="o">|</span> <span class="n">ImageContent</span> <span class="o">|</span> <span class="n">EmbeddedResource</span><span class="p">]:</span>
+    <span class="sh">"""</span><span class="s">Handle tool calls for heartbeat.</span><span class="sh">"""</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="sh">"</span><span class="s">get_heartbeat</span><span class="sh">"</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Unknown tool: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">or</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">arguments</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="sh">"</span><span class="s">Invalid arguments</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="n">reply</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">:</span> <span class="sa">f</span><span class="sh">"</span><span class="s">Hello </span><span class="si">{</span><span class="n">arguments</span><span class="p">[</span><span class="sh">'</span><span class="s">user</span><span class="sh">'</span><span class="p">]</span><span class="si">}</span><span class="s">, my heart beats for you!</span><span class="sh">"</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="nc">TextContent</span><span class="p">(</span>
+            <span class="nb">type</span><span class="o">=</span><span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">]</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Import here to avoid issues with event loops
+</span>    <span class="kn">from</span> <span class="n">mcp.server.stdio</span> <span class="kn">import</span> <span class="n">stdio_server</span>
+
+    <span class="k">async</span> <span class="k">with</span> <span class="nf">stdio_server</span><span class="p">()</span> <span class="nf">as </span><span class="p">(</span><span class="n">read_stream</span><span class="p">,</span> <span class="n">write_stream</span><span class="p">):</span>
+        <span class="k">await</span> <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span>
+            <span class="n">read_stream</span><span class="p">,</span>
+            <span class="n">write_stream</span><span class="p">,</span>
+            <span class="n">app</span><span class="p">.</span><span class="nf">create_initialization_options</span><span class="p">()</span>
+        <span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="n">asyncio</span>
+    <span class="n">asyncio</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="nf">main</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h3 id="resource-server-sample-code">Resource Server Sample Code</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">mcp.server</span> <span class="kn">import</span> <span class="n">Server</span>
+<span class="kn">from</span> <span class="n">mcp</span> <span class="kn">import</span> <span class="n">Tool</span>
+<span class="kn">from</span> <span class="n">mcp.types</span> <span class="kn">import</span> <span class="n">AnyUrl</span><span class="p">,</span> <span class="n">FileUrl</span>
+<span class="kn">from</span> <span class="n">mcp</span> <span class="kn">import</span> <span class="n">types</span>
+
+<span class="c1"># Create a server instance
+</span><span class="n">app</span> <span class="o">=</span> <span class="nc">Server</span><span class="p">(</span><span class="sh">"</span><span class="s">heartbeat-server</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="nd">@app.list_resources</span><span class="p">()</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">list_resources</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">types</span><span class="p">.</span><span class="n">Resource</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="n">types</span><span class="p">.</span><span class="nc">Resource</span><span class="p">(</span>
+            <span class="n">uri</span><span class="o">=</span><span class="nc">FileUrl</span><span class="p">(</span><span class="sh">"</span><span class="s">file://Users/lee/Documents/mcp/README.md</span><span class="sh">"</span><span class="p">),</span> <span class="c1"># type: ignore
+</span>            <span class="n">name</span><span class="o">=</span><span class="sh">"</span><span class="s">Application Logs</span><span class="sh">"</span><span class="p">,</span>
+            <span class="n">mimeType</span><span class="o">=</span><span class="sh">"</span><span class="s">text/plain</span><span class="sh">"</span>
+        <span class="p">)</span>
+    <span class="p">]</span>
+
+<span class="nd">@app.read_resource</span><span class="p">()</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_resource</span><span class="p">(</span><span class="n">uri</span><span class="p">:</span> <span class="n">AnyUrl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nf">str</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span> <span class="o">==</span> <span class="sh">"</span><span class="s">file:///logs/app.log</span><span class="sh">"</span><span class="p">:</span>
+        <span class="n">log_contents</span> <span class="o">=</span> <span class="sh">"</span><span class="s">log</span><span class="sh">"</span>
+        <span class="k">return</span> <span class="n">log_contents</span>
+
+    <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="sh">"</span><span class="s">Resource not found</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Import here to avoid issues with event loops
+</span>    <span class="kn">from</span> <span class="n">mcp.server.stdio</span> <span class="kn">import</span> <span class="n">stdio_server</span>
+
+    <span class="k">async</span> <span class="k">with</span> <span class="nf">stdio_server</span><span class="p">()</span> <span class="nf">as </span><span class="p">(</span><span class="n">read_stream</span><span class="p">,</span> <span class="n">write_stream</span><span class="p">):</span>
+        <span class="k">await</span> <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span>
+            <span class="n">read_stream</span><span class="p">,</span>
+            <span class="n">write_stream</span><span class="p">,</span>
+            <span class="n">app</span><span class="p">.</span><span class="nf">create_initialization_options</span><span class="p">()</span>
+        <span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="n">asyncio</span>
+    <span class="n">asyncio</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="nf">main</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h2 id="references">References</h2>
+<h3 id="python-sdk">Python SDK</h3>
+
+<p>https://github.com/modelcontextprotocol/python-sdk</p>
+
+<h3 id="mcp-server">MCP Server</h3>
+
+<p>https://github.com/modelcontextprotocol/servers</p>
+
+<h3 id="example">Example</h3>
+<p>https://medium.com/@shuvro_25220/is-anthropics-model-context-protocol-mcp-the-interoperability-standard-we-ve-been-waiting-for-f2fe9e38110c</p>
+
+                <div class="entry-meta">
+                <br>
+<hr>
+
+<div style="width:100%">
+<div style="width:10%;float:left;">
+    <span style="color:#999999;">출처</span>
+</div>
+<div style="width:90%;float:left;">
+
+</div>
+<span style="color:black;"></span>
+<span class="refer-tags">
+</span>
+</div>
+
+<span class="entry-tags"><a href="/tags/#LLM" title="Pages tagged LLM" class="tag"><span class="term">LLM</span></a></span>
+<div style="clear:both"></div>
+
+                </div>
+            </div>
+        </div>
+        <!-- <section id="disqus_thread" class="animated fadeInUp"></section> --><!-- /#disqus_thread -->
+    </header>
+        <!-- JS -->
+    <script src="/assets/js/jquery-1.12.0.min.js"></script>
+    <script src="/assets/js/jquery.dlmenu.min.js"></script>
+    <script src="/assets/js/jquery.goup.min.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/js/jquery.fitvid.min.js"></script>
+    <script src="/assets/js/scripts.js"></script>
+    
+    
+    <!-- MathJax -->
+    <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+</body>
+</html>
