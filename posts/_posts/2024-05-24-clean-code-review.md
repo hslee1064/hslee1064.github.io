@@ -10,7 +10,7 @@ comments: true
 ---
 
 # 0장. 개요
-![Untitled](../assets/img/post/clean_code_0.jpg)
+![Untitled](../assets/img/post/clean_code_0.png)
 - Abstract
     - 로버트 C. 마틴 지음
     - 2013년 12월 24일 출간
