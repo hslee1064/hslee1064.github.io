@@ -10,7 +10,7 @@ comments: true
 ---
 
 # 0장. 개요
-
+![Untitled](../assets/img/post/clean_code_0.jpeg)
 - Abstract
     - 로버트 C. 마틴 지음
     - 2013년 12월 24일 출간
@@ -65,7 +65,7 @@ int t; et;
 int O = 0
 
 // 발음하기 어려운 단어 금지
-~~int genymdhms = "generate date, year, month, day, ..."~~
+int genymdhms = "generate date, year, month, day, ..."
 
 // 검색하기 쉬운 이름 사용
 int MAX_CLASSES_PER_STUDENT = 1
@@ -76,9 +76,9 @@ class Person(){
 }
 
 // 자신의 기억력을 자랑하지 마라
-~~int a
+int a
 int b
-int c~~
+int c
 ```
 
 ### 변수명에 대한 개인 의견
@@ -726,7 +726,7 @@ public class SelectWithMatchSql extends Sql {
     - 관례보다 구조를 사용하라 - **하던대로 하지말고 책에서 말하는대로 해라**
     - 조건을 캡슐화하라 - **Boolean 리턴 함수는 is/has로 시작하기 isHandsome(hyunsik)**
     - 부정 조건은 피하라 - **isNotHandsome(hyunsik) 쓰지 말기**
-    - 함수는 한가지만 해야 한다 - ~~(**이제 그만말하셔도…)**~~
+    - 함수는 한가지만 해야 한다 - ~~(**이제 그만 말하셔도…)**~~
     - 숨겨진 시간적인 결합 - **인수 위치를 적절히 배치해 함수가 호출되는 순서를 명확히 하자**
     - 일관성을 유지하라 - **클래스간 호출 구조를 명확히 하자**
     - 경계 조건을 캡슐화하라 - **같은 if 조건 여러번 나오게 하지 말자**
