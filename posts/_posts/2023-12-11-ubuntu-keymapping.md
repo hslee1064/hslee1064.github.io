@@ -2,14 +2,14 @@
 layout: post
 title: "Ubuntu Keyboard Mapping"
 date: 2023-12-11
-description: "회사에서 맥은 안주고 윈도우는 보안도 너무 많아서 우분투 세팅"
+description: "회사에서 맥은 안주고 윈도우는 개발하기 불편해서 우분투 세팅"
 excerpt: ""
 tags:
 - Ubuntu
-comments: true
+comments: true서
 ---
 ### Abstract
-- 회사에서 맥은 안주고 윈도우는 보안도 너무 많아서 우분투 세팅 시작
+- 회사에서 맥은 안주고 윈도우는 개발하기 불편해서 우분투 세팅 시작
 - 우분투를 맥과 똑같은 환경으로 만드는 것을 목표로 함
 
 ### Capslock to 한영

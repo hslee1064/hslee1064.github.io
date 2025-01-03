@@ -2,14 +2,14 @@
 layout: post
 title: "Model Context Protocol"
 date: 2024-11-28
-description: "회사에서 Model Context Protocol 리뷰가 필요해서 정리"
+description: "Model Context Protocol 리뷰가 필요해서 정리"
 excerpt: ""
 tags:
 - LLM
 comments: true
 ---
 ## Abstract
-- 회사에서 Model Context Protocol 리뷰가 필요해서 정리
+- Model Context Protocol 리뷰가 필요해서 정리
 
 ## Introduction
 
