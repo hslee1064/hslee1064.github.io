@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "클린코드 리뷰"
+title: "Clean Code Review"
 date: 2024-05-24
 description: "클린코드 리뷰가 필요해서 정리"
 excerpt: ""
