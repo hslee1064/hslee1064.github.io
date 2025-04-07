@@ -60,21 +60,7 @@ data:
 ```
 
 - gpg-key mount
-```bash
-asdfasdf
-```
-```
-# argocd-repo-server deployment
-...
-volumes:
-  - name: gpg-key
-    secret:
-      secretName: git-crypt-gpg-key
-volumeMounts:
-    name: plugins
-    - name: gpg-key
-...
-```
+
 
 - ArgoCD plugin 생성
 ```bash
