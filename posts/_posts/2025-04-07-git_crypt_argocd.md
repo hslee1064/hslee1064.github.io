@@ -55,7 +55,8 @@ metadata:
   namespace: argocd
 type: Opaque
 data:
-  gpg-private.key: {} # base64로 인코딩된 gpg private key
+  gpg-private.key: {}
+  # base64로 인코딩된 gpg private key
 ```
 
 - gpg-key mount
@@ -69,6 +70,7 @@ volumes:
 volumeMounts:
     name: plugins
     - name: gpg-key
+...
 ```
 
 - ArgoCD plugin 생성
