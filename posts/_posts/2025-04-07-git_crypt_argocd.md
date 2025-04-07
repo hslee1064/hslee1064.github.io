@@ -85,7 +85,7 @@ configManagementPlugins: |
             git reset --hard HEAD && \
             git clean -fd && \
             export GNUPGHOME=/tmp/.gnupg && \력
-            mkdir -p $GNUPGHOME && chmod 700 $GNUPGHOME && \
+            mkdir -p \$GNUPGHOME && chmod 700 \$GNUPGHOME && \
             export GPG_TTY=/dev/null && export GPG_AGENT_INFO= && \
             gpg --no-tty --batch --yes --import /gpg/gpg-private.key && \
             echo "{fingerpint}:6:" | gpg --import-ownertrust && \
