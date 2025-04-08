@@ -63,5 +63,11 @@ data:
 
 - ArgoCD plugin 생성
 ```bash
-configManagementPlugins:
+configManagementPlugins: |
+  - name: git-crypt-helm
+  init:
+      command: [sh, -c]
+      args:
+      - |
+
 ```
