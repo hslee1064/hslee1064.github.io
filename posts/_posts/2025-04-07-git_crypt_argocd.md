@@ -60,9 +60,6 @@ data:
 ```
 
 - gpg-key mount
-```bash
-
-```
 
 - ArgoCD plugin 생성
 {% raw %}
