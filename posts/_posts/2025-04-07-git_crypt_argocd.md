@@ -60,50 +60,50 @@ data:
 ```
 
 - gpg-key mount
-{% raw %}
-```yaml
-# argocd-repo-server deployment
-...
-volumes:
-  - name: gpg-key
-    secret:
-      secretName: git-crypt-gpg-key
-volumeMounts:
-    name: plugins
+  {% raw %}
+  ```yaml
+  # argocd-repo-server deployment
+  ...
+  volumes:
     - name: gpg-key
-...
-```
-{% endraw %}
+      secret:
+        secretName: git-crypt-gpg-key
+  volumeMounts:
+      name: plugins
+      - name: gpg-key
+  ...
+  ```
+  {% endraw %}
 
 - ArgoCD plugin 생성
-{% raw %}
-```yaml
-# 중간에 fingerpint 입력
-configManagementPlugins: |
-  - name: git-crypt-helm
-  init:
-      command: [sh, -c]
-      args:
-      - |
-          git reset --hard HEAD && \
-          git clean -fd && \
-          export GNUPGHOME=/tmp/.gnupg && \
-          mkdir -p GNUPGHOME && chmod 700 GNUPGHOME && \
-          export GPG_TTY=/dev/null && export GPG_AGENT_INFO= && \
-          gpg --no-tty --batch --yes --import /gpg/gpg-private.key && \
-          echo "{fingerpint}:6:" | gpg --import-ownertrust && \
-          git-crypt unlock || true && \
-          git reset --hard HEAD && \
-          git clean -fd
-  generate:
-      command: [sh, -c]
-      args:
-      - |
-          helm dependency build . && \
-          helm template . \
-          --values values.yaml \
-          --values values.aidev.yaml \
-          --values secrets.aidev.yaml \
-          --debug
-```
-{% endraw %}
+  {% raw %}
+  ```yaml
+  # 중간에 fingerpint 입력
+  configManagementPlugins: |
+    - name: git-crypt-helm
+    init:
+        command: [sh, -c]
+        args:
+        - |
+            git reset --hard HEAD && \
+            git clean -fd && \
+            export GNUPGHOME=/tmp/.gnupg && \
+            mkdir -p GNUPGHOME && chmod 700 GNUPGHOME && \
+            export GPG_TTY=/dev/null && export GPG_AGENT_INFO= && \
+            gpg --no-tty --batch --yes --import /gpg/gpg-private.key && \
+            echo "{fingerpint}:6:" | gpg --import-ownertrust && \
+            git-crypt unlock || true && \
+            git reset --hard HEAD && \
+            git clean -fd
+    generate:
+        command: [sh, -c]
+        args:
+        - |
+            helm dependency build . && \
+            helm template . \
+            --values values.yaml \
+            --values values.aidev.yaml \
+            --values secrets.aidev.yaml \
+            --debug
+  ```
+  {% endraw %}
