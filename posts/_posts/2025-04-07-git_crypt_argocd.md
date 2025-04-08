@@ -63,7 +63,7 @@ data:
 
 - ArgoCD plugin 생성
 {% raw %}
-```bash
+```
 # 중간에 fingerpint 입력
 configManagementPlugins: |
   - name: git-crypt-helm
