@@ -60,10 +60,24 @@ data:
 ```
 
 - gpg-key mount
+{% raw %}
+```bash
+# argocd-repo-server deployment
+...
+volumes:
+  - name: gpg-key
+    secret:
+      secretName: git-crypt-gpg-key
+volumeMounts:
+    name: plugins
+    - name: gpg-key
+...
+```
+{% endraw %}
 
 - ArgoCD plugin 생성
 {% raw %}
-```
+```bash
 # 중간에 fingerpint 입력
 configManagementPlugins: |
   - name: git-crypt-helm
