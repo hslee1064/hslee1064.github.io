@@ -61,7 +61,7 @@ data:
 
 - gpg-key mount
 {% raw %}
-```bash
+```yaml
 # argocd-repo-server deployment
 ...
 volumes:
@@ -77,7 +77,7 @@ volumeMounts:
 
 - ArgoCD plugin 생성
 {% raw %}
-```bash
+```yaml
 # 중간에 fingerpint 입력
 configManagementPlugins: |
   - name: git-crypt-helm
