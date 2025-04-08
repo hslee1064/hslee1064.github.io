@@ -63,30 +63,5 @@ data:
 
 - ArgoCD plugin 생성
 ```bash
-configManagementPlugins: |
-  - name: git-crypt-helm
-  init:
-      command: [sh, -c]
-      args:
-      - |
-          git reset --hard HEAD && \
-          git clean -fd && \
-          export GNUPGHOME=/tmp/.gnupg && \
-          mkdir -p GNUPGHOME && chmod 700 GNUPGHOME && \
-          export GPG_TTY=/dev/null && export GPG_AGENT_INFO= && \
-          gpg --no-tty --batch --yes --import /gpg/gpg-private.key && \
-          echo "{fingerpint}:6:" | gpg --import-ownertrust && \
-          git-crypt unlock || true && \
-          git reset --hard HEAD && \
-          git clean -fd
-  generate:
-      command: [sh, -c]
-      args:
-      - |
-          helm dependency build . && \
-          helm template . \
-          --values values.yaml \
-          --values values.aidev.yaml \
-          --values secrets.aidev.yaml \
-          --debug
+configManagementPlugins:
 ```
