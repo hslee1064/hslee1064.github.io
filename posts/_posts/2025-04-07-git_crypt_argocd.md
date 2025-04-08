@@ -57,14 +57,18 @@ type: Opaque
 data:
   gpg-private.key: {}
   # base64로 인코딩된 gpg private key
-  asdfasdf
 ```
 
 - gpg-key mount
-
 - ArgoCD plugin 생성
-```
-asdasdasd
-# 중간에 fingerpint 입력
-
+```bash
+apiVersion: v1
+kind: Secret
+metadata:
+  name: git-crypt-gpg-key
+  namespace: argocd
+type: Opaque
+data:
+  gpg-private.key: {}
+  # base64로 인코딩된 gpg private key
 ```
