@@ -102,8 +102,6 @@ data:
             helm dependency build . && \
             helm template . \
             --values values.yaml \
-            --values values.aidev.yaml \
-            --values secrets.aidev.yaml \
             --debug
   ```
   {% endraw %}
