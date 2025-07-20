@@ -9,7 +9,7 @@ tags:
 comments: true
 ---
 
-![Untitled](../assets/img/post/python_clean_code_0.png)
+![Untitled](../assets/img/post/python_clean_code_0.jpg)
 
 # 0장. 개요
 - Abstract
