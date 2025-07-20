@@ -9,7 +9,7 @@ tags:
 comments: true
 ---
 
-![Untitled](../assets/img/post/clean_code_0.png)
+![Untitled](../assets/img/post/python_clean_code_0.png)
 
 # 0장. 개요
 - Abstract
@@ -69,10 +69,10 @@ x = 10  # 변수 x에 10을 할당
   print(add.__doc__)
   ```
   - 예시
-  ![Untitled](../assets/img/post/python_clean_code_0.png)
-
+  ![Untitled](../assets/img/post/python_clean_code_1.png)
 
 # 2장. 파이썬스러운 코드
+
 # 3장. 좋은 코드의 일반적인 특징
 # 4장. SOLID 원칙
 # 5장. 데코레이터를 사용한 코드 개선
