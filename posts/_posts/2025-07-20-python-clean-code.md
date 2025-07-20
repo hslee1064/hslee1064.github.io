@@ -39,7 +39,7 @@ comments: true
 
 ### Linter & Formatter
 | 구분 | linter (린터)              | formatter (포매터)      |
-| ---- | -------------------------- | ----------------------- |
+| :--- | :------------------------- | :---------------------- |
 | 목적 | 오류/버그/비표준 코드 탐지 | 스타일 일관성 자동 수정 |
 | 행동 | 경고/에러 메시지로 알림    | 코드를 자동 변경        |
 | 예시 | pylint                     | black, ruff             |
@@ -50,13 +50,13 @@ comments: true
 
 ### Comment & Docstring
 - comment
-```
+```python
 # 이것은 한 줄 주석입니다.
 x = 10  # 변수 x에 10을 할당
 ```
 - docstring
-  - Python 고유한 기능(공식 문서화)
-  ```
+  - Python에서 공식 문서화 가능
+  ```python
   def add(a, b):
       """
       두 수를 더해서 반환하는 함수.
@@ -68,6 +68,7 @@ x = 10  # 변수 x에 10을 할당
 
   print(add.__doc__)
   ```
+  - 예시
   ![Untitled](../assets/img/post/python_clean_code_0.png)
 
 
