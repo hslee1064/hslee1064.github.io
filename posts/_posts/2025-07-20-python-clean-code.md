@@ -38,10 +38,6 @@ comments: true
 → 함수에 타입 어노테이션을 붙일 수 있도록 표준화
 
 ### Linter & Formatter
-| $\alpha$ | $\beta$ | $\gamma$ | ...  |
-| :------- | :------ | :------- | :--- |
-| \alpha   | \beta   | \gamma   | ...  |
-{: rules="groups"}
 
 | 구분 | linter (린터)              | formatter (포매터)      |
 | :--- | :------------------------- | :---------------------- |
@@ -77,7 +73,21 @@ x = 10  # 변수 x에 10을 할당
   - 예시
   ![Untitled](../assets/img/post/python_clean_code_1.png)
 
+### Annotation
+- PEP-3107에서 소개
+- **Python Annotation(어노테이션)**은 함수의 파라미터(인자)와 반환값에 대해 타입 또는 의미를 명시적으로 적어주는 문법입니다.
+- 주로 **Type Hint(타입 힌트)**라고 부르며, Python 3.0 이후 도입되었고, Python 3.5부터 본격적으로 활용되고 있습니다.
+- 함수의 인자와 반환값에 대해 타입(또는 의미)를 :와 ->를 이용해서 명시하는 기능
+- 실제 코드 실행에는 영향이 없으며, 코드의 가독성/명확성 향상, 정적 타입 검사, 자동 문서화 등 에 사용
+```python
+from typing import List, Optional
+
+def greet(names: List[str], age: Optional[int] = None) -> None:
+    pass
+```
+
 # 2장. 파이썬스러운 코드
+
 
 # 3장. 좋은 코드의 일반적인 특징
 # 4장. SOLID 원칙
