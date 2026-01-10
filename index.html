@@ -78,13 +78,46 @@
         <p class="label">Gallery</p>
         <h2>우리의 순간</h2>
       </div>
-      <div class="gallery-track" aria-label="함께 담은 사진들">
-        <figure class="photo"><img src="files/3L9A0001.jpg" alt="함께 찍은 사진 1"></figure>
-        <figure class="photo"><img src="files/3L9A0002.jpg" alt="함께 찍은 사진 2"></figure>
-        <figure class="photo"><img src="files/3L9A0004.jpg" alt="함께 찍은 사진 3"></figure>
-        <figure class="photo"><img src="files/3L9A0005.jpg" alt="함께 찍은 사진 4"></figure>
-        <figure class="photo"><img src="files/3L9A0006.jpg" alt="함께 찍은 사진 5"></figure>
-        <figure class="photo"><img src="files/3L9A0007.jpg" alt="함께 찍은 사진 6"></figure>
+      <div class="gallery-grid" aria-label="함께 담은 사진들">
+        <figure class="photo" tabindex="0" role="button" data-caption="햇살 아래 함께 미소 짓는 순간">
+          <img src="files/3L9A9397.jpg" alt="햇살 아래 나란히 선 두 사람">
+          <figcaption>햇살 아래 함께 미소 짓는 순간</figcaption>
+        </figure>
+        <figure class="photo" tabindex="0" role="button" data-caption="도심을 배경으로한 따뜻한 눈맞춤">
+          <img src="files/3L9A9427.jpg" alt="도심을 배경으로 서로를 바라보는 모습">
+          <figcaption>도심을 배경으로한 따뜻한 눈맞춤</figcaption>
+        </figure>
+        <figure class="photo" tabindex="0" role="button" data-caption="함께 걷는 길 위의 설렘">
+          <img src="files/3L9A9458.jpg" alt="길 위를 함께 걷는 모습">
+          <figcaption>함께 걷는 길 위의 설렘</figcaption>
+        </figure>
+        <figure class="photo" tabindex="0" role="button" data-caption="잔잔한 호숫가에서의 담담한 포즈">
+          <img src="files/3L9A0007.jpg" alt="호숫가에서 서로에게 기대는 모습">
+          <figcaption>잔잔한 호숫가에서의 담담한 포즈</figcaption>
+        </figure>
+        <figure class="photo" tabindex="0" role="button" data-caption="웃음이 가득한 스냅샷">
+          <img src="files/3L9A0023.jpg" alt="밝게 웃는 두 사람">
+          <figcaption>웃음이 가득한 스냅샷</figcaption>
+        </figure>
+        <figure class="photo" tabindex="0" role="button" data-caption="서로를 바라보며 약속을 다지는 모습">
+          <img src="files/3L9A1091.jpg" alt="서로를 바라보며 손을 맞잡은 모습">
+          <figcaption>서로를 바라보며 약속을 다지는 모습</figcaption>
+        </figure>
+      </div>
+      <div class="lightbox" id="lightbox" aria-hidden="true">
+        <div class="lightbox__backdrop" data-close></div>
+        <div class="lightbox__dialog" role="dialog" aria-modal="true" aria-label="사진 크게 보기">
+          <button class="lightbox__close" type="button" aria-label="닫기" data-close>&times;</button>
+          <div class="lightbox__frame">
+            <button class="lightbox__nav" type="button" data-prev aria-label="이전 사진">&#10094;</button>
+            <figure class="lightbox__figure">
+              <img id="lightbox-image" src="" alt="">
+              <figcaption id="lightbox-caption"></figcaption>
+            </figure>
+            <button class="lightbox__nav" type="button" data-next aria-label="다음 사진">&#10095;</button>
+          </div>
+          <p class="lightbox__count" id="lightbox-count"></p>
+        </div>
       </div>
     </section>
 
