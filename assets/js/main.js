@@ -1,6 +1,6 @@
 (function () {
   const countdownEl = document.getElementById('countdown');
-  const ceremonyDate = new Date('2025-10-11T14:00:00+09:00');
+  const ceremonyDate = new Date('2026-04-18T13:00:00+09:00');
 
   function formatTime(ms) {
     const totalSeconds = Math.max(0, Math.floor(ms / 1000));
