@@ -29,6 +29,10 @@
   const nextBtn = lightbox?.querySelector('[data-next]');
   const closeBtns = lightbox?.querySelectorAll('[data-close]');
 
+  if (lightbox && lightbox.parentElement !== document.body) {
+    document.body.appendChild(lightbox);
+  }
+
   if (galleryFigures.length && lightbox && lightboxImage && lightboxCount && prevBtn && nextBtn && closeBtns) {
     const slides = galleryFigures
       .map((figure) => {
@@ -44,6 +48,7 @@
     let lastFocused = null;
     let lightboxStatePushed = false;
     let isProgrammaticClose = false;
+    let scrollYBeforeOpen = 0;
 
     function updateSlide(index) {
       currentIndex = (index + slides.length) % slides.length;
@@ -57,13 +62,16 @@
       if (!slides.length) return;
       lastFocused = document.activeElement;
       updateSlide(index);
+      scrollYBeforeOpen = window.scrollY || window.pageYOffset || 0;
+      document.body.style.top = `-${scrollYBeforeOpen}px`;
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
       if (!lightboxStatePushed) {
         history.pushState({ lightbox: true }, '', window.location.href);
         lightboxStatePushed = true;
       }
       lightbox.classList.add('is-open');
       lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
       document.addEventListener('keydown', handleKeydown);
       nextBtn.focus();
     }
@@ -71,7 +79,10 @@
     function closeLightbox(triggeredByPop = false) {
       lightbox.classList.remove('is-open');
       lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, scrollYBeforeOpen);
       document.removeEventListener('keydown', handleKeydown);
       if (!triggeredByPop && lightboxStatePushed) {
         isProgrammaticClose = true;

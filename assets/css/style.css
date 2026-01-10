@@ -314,8 +314,6 @@ main {
   position: fixed;
   inset: 0;
   display: none;
-  align-items: center;
-  justify-content: center;
   z-index: 9999;
 }
 
@@ -334,7 +332,7 @@ main {
   position: relative;
   background: #fff;
   border-radius: 0;
-  padding: 12px;
+  padding: 0;
   width: 100vw;
   height: 100vh;
   box-shadow: none;
@@ -361,6 +359,8 @@ main {
   background: #fff;
   width: 100%;
   height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
 }
 
 .lightbox__figure img {
@@ -377,34 +377,34 @@ main {
   border: none;
   background: rgba(0, 0, 0, 0.08);
   color: var(--ink);
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   font-size: 22px;
   display: grid;
   place-items: center;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease;
+  transition: background 0.2s ease;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  z-index: 2;
 }
 
 .lightbox__nav:hover {
   background: rgba(0, 0, 0, 0.16);
-  transform: translateY(-1px);
 }
 
 .lightbox__nav[data-prev] {
-  left: 12px;
+  left: max(12px, env(safe-area-inset-left));
 }
 
 .lightbox__nav[data-next] {
-  right: 12px;
+  right: max(12px, env(safe-area-inset-right));
 }
 
 .lightbox__close {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: max(14px, env(safe-area-inset-top));
+  right: max(14px, env(safe-area-inset-right));
   border: none;
   background: rgba(0, 0, 0, 0.08);
   width: 38px;
@@ -414,6 +414,7 @@ main {
   cursor: pointer;
   color: var(--ink);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  z-index: 3;
 }
 
 .lightbox__count {
