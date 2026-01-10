@@ -267,33 +267,19 @@ main {
 .gallery-track {
   margin-top: 12px;
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 80%;
-  gap: 12px;
-  overflow-x: auto;
-  padding: 4px 2px 2px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.gallery-track::-webkit-scrollbar {
-  height: 6px;
-}
-
-.gallery-track::-webkit-scrollbar-thumb {
-  background: rgba(47, 42, 37, 0.2);
-  border-radius: 999px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
 }
 
 .photo {
-  scroll-snap-align: start;
   position: relative;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
   background: #fff;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;
+  max-height: 320px;
 }
 
 .photo img {
@@ -322,8 +308,5 @@ main {
   }
   .hero h1 {
     font-size: 42px;
-  }
-  .gallery-track {
-    grid-auto-columns: 48%;
   }
 }
