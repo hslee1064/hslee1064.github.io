@@ -280,8 +280,15 @@ main {
   background: #fff;
   aspect-ratio: 1 / 1;
   max-height: none;
+  touch-action: manipulation;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.photo::before {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
 }
 
 .photo:focus-visible {
@@ -295,6 +302,8 @@ main {
 }
 
 .photo img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -307,7 +316,7 @@ main {
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 .lightbox.is-open {
@@ -317,15 +326,15 @@ main {
 .lightbox__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
 }
 
 .lightbox__dialog {
   position: relative;
   background: transparent;
   border-radius: 0;
-  padding: 0;
+  padding: 16px;
   width: 100vw;
   height: 100vh;
   box-shadow: none;
@@ -342,6 +351,7 @@ main {
   justify-content: center;
   width: 100%;
   height: 100%;
+  padding: 12px;
 }
 
 .lightbox__figure {
