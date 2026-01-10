@@ -1,6 +1,115 @@
----
-layout: home
-title: Home
-comments: false
----
- 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>우리의 초대 | Wedding Invitation</title>
+  <meta name="description" content="함께하는 순간을 위해 초대장을 준비했습니다." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+  <header class="hero">
+    <p class="eyebrow">초대합니다</p>
+    <h1>이현수 &amp; 김다은</h1>
+    <p class="date">2025.10.11 (Sat) · 오후 2시</p>
+    <p class="venue">서울 성동구 어딘가에서</p>
+    <div class="cta">
+      <a class="button primary" href="#details">예식 안내 보기</a>
+      <a class="button ghost" href="#map">지도 열기</a>
+    </div>
+    <div class="countdown" id="countdown" aria-label="결혼식까지 남은 시간"></div>
+  </header>
+
+  <main>
+    <section class="card" id="details">
+      <div class="section-header">
+        <p class="label">Invitation</p>
+        <h2>함께라서 더 좋은 날</h2>
+      </div>
+      <p class="lead">두 사람이 걸어온 길 위에 새로운 계절이 찾아왔습니다. 기쁨과 설렘을 나누고자 하오니 부디 오셔서 축복해 주세요.</p>
+      <div class="grid duo">
+        <div>
+          <p class="label">신랑</p>
+          <h3>이현수</h3>
+          <p class="contact">📞 010-1234-5678</p>
+        </div>
+        <div>
+          <p class="label">신부</p>
+          <h3>김다은</h3>
+          <p class="contact">📞 010-9876-5432</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card timeline">
+      <div class="section-header">
+        <p class="label">Schedule</p>
+        <h2>당일 안내</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="time">13:20</div>
+          <div>
+            <h4>포토 타임</h4>
+            <p>가족·친구분들과 함께하는 프리 스냅.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="time">14:00</div>
+          <div>
+            <h4>예식 시작</h4>
+            <p>식장 3층 채플홀에서 진행됩니다.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="time">15:00</div>
+          <div>
+            <h4>피로연</h4>
+            <p>동일 층 연회장에서 뷔페로 준비됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card map" id="map">
+      <div class="section-header">
+        <p class="label">Location</p>
+        <h2>오시는 길</h2>
+      </div>
+      <div class="map-card">
+        <div class="map-placeholder">
+          <div class="pin">✧</div>
+          <p>서울 성동구 어디메길 123<br/>더 브라운웨딩 3층 채플홀</p>
+        </div>
+        <div class="map-actions">
+          <a class="button primary" href="https://map.naver.com/" target="_blank" rel="noreferrer">네이버 지도</a>
+          <a class="button ghost" href="https://maps.app.goo.gl/" target="_blank" rel="noreferrer">구글 지도</a>
+        </div>
+        <p class="small">대중교통: 2호선 성수역 4번 출구 도보 7분 · 주차 2시간 무료</p>
+      </div>
+    </section>
+
+    <section class="card info">
+      <div class="section-header">
+        <p class="label">Notes</p>
+        <h2>작은 부탁</h2>
+      </div>
+      <ul class="notes">
+        <li>화환은 정중히 사양합니다. 작은 손 편지만으로도 마음이 전해집니다.</li>
+        <li>모바일 청첩장 공유 시, 상단의 "예식 안내" 버튼을 눌러 일정과 위치를 알려주세요.</li>
+        <li>축의금 계좌가 필요하시면 연락 주시면 안내드리겠습니다.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>With love, 현수 &amp; 다은</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
