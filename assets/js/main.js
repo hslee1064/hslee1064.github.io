@@ -42,6 +42,8 @@
 
     let currentIndex = 0;
     let lastFocused = null;
+    let lightboxStatePushed = false;
+    let isProgrammaticClose = false;
 
     function updateSlide(index) {
       currentIndex = (index + slides.length) % slides.length;
@@ -55,6 +57,10 @@
       if (!slides.length) return;
       lastFocused = document.activeElement;
       updateSlide(index);
+      if (!lightboxStatePushed) {
+        history.pushState({ lightbox: true }, '', window.location.href);
+        lightboxStatePushed = true;
+      }
       lightbox.classList.add('is-open');
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -62,11 +68,17 @@
       nextBtn.focus();
     }
 
-    function closeLightbox() {
+    function closeLightbox(triggeredByPop = false) {
       lightbox.classList.remove('is-open');
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       document.removeEventListener('keydown', handleKeydown);
+      if (!triggeredByPop && lightboxStatePushed) {
+        isProgrammaticClose = true;
+        history.back();
+      }
+      lightboxStatePushed = false;
+      isProgrammaticClose = false;
       if (lastFocused instanceof HTMLElement) {
         lastFocused.focus();
       }
@@ -95,5 +107,14 @@
     prevBtn.addEventListener('click', () => updateSlide(currentIndex - 1));
     nextBtn.addEventListener('click', () => updateSlide(currentIndex + 1));
     closeBtns.forEach((btn) => btn.addEventListener('click', closeLightbox));
+
+    window.addEventListener('popstate', (event) => {
+      if (isProgrammaticClose) return;
+      if (event.state && event.state.lightbox) {
+        closeLightbox(true);
+      } else if (lightbox.classList.contains('is-open')) {
+        closeLightbox(true);
+      }
+    });
   }
 })();
