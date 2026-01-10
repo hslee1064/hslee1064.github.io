@@ -8,7 +8,7 @@
   --card: rgba(255, 255, 255, 0.82);
   --border: rgba(47, 42, 37, 0.08);
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-  font-family: 'Work Sans', system-ui, -apple-system, sans-serif;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   color: var(--ink);
   background: var(--bg);
 }
@@ -63,7 +63,6 @@ body {
 }
 
 .hero h1 {
-  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
   font-size: 36px;
   letter-spacing: 0.04em;
   margin: 6px 0 10px;
@@ -174,7 +173,6 @@ main {
 }
 
 .grid h3 {
-  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
   font-size: 20px;
 }
 
