@@ -24,20 +24,18 @@
   const galleryFigures = Array.from(document.querySelectorAll('.gallery .photo'));
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = document.getElementById('lightbox-image');
-  const lightboxCaption = document.getElementById('lightbox-caption');
   const lightboxCount = document.getElementById('lightbox-count');
   const prevBtn = lightbox?.querySelector('[data-prev]');
   const nextBtn = lightbox?.querySelector('[data-next]');
   const closeBtns = lightbox?.querySelectorAll('[data-close]');
 
-  if (galleryFigures.length && lightbox && lightboxImage && lightboxCaption && lightboxCount && prevBtn && nextBtn && closeBtns) {
+  if (galleryFigures.length && lightbox && lightboxImage && lightboxCount && prevBtn && nextBtn && closeBtns) {
     const slides = galleryFigures
       .map((figure) => {
         const img = figure.querySelector('img');
         return {
           src: img?.getAttribute('src') || '',
-          alt: img?.getAttribute('alt') || '',
-          caption: figure.dataset.caption || figure.querySelector('figcaption')?.textContent?.trim() || ''
+          alt: img?.getAttribute('alt') || ''
         };
       })
       .filter((slide) => slide.src);
@@ -50,7 +48,6 @@
       const slide = slides[currentIndex];
       lightboxImage.src = slide.src;
       lightboxImage.alt = slide.alt;
-      lightboxCaption.textContent = slide.caption;
       lightboxCount.textContent = `${currentIndex + 1} / ${slides.length}`;
     }
 
