@@ -61,28 +61,7 @@
       </div>
       <div class="account-inline">
         <p class="account-title">마음 전하실 곳</p>
-        <div class="account-list">
-          <div class="account">
-            <div>
-              <p class="account-name">이현식</p>
-              <p class="account-bank">우리은행 (예금주 : 이현식)</p>
-            </div>
-            <div class="account-actions">
-              <p class="account-number">1002237448603</p>
-              <button class="button ghost account-copy" type="button" data-copy-account="1002237448603">복사</button>
-            </div>
-          </div>
-          <div class="account">
-            <div>
-              <p class="account-name">조지원</p>
-              <p class="account-bank">KB국민 (예금주 : 조지원)</p>
-            </div>
-            <div class="account-actions">
-              <p class="account-number">52940201326248</p>
-              <button class="button ghost account-copy" type="button" data-copy-account="52940201326248">복사</button>
-            </div>
-          </div>
-        </div>
+        <button class="button ghost account-open" type="button" data-account-open>마음 전하기</button>
       </div>
     </section>
 
@@ -258,6 +237,36 @@
     <div class="message-modal__dialog" role="dialog" aria-modal="true" aria-label="초대 메세지">
       <p class="message-modal__text" id="message-modal-text"></p>
       <button class="button primary message-modal__action" type="button" data-message-close>확인</button>
+    </div>
+  </div>
+
+  <div class="message-modal" id="account-modal" aria-hidden="true">
+    <div class="message-modal__backdrop" data-account-close></div>
+    <div class="message-modal__dialog" role="dialog" aria-modal="true" aria-label="계좌 안내">
+      <h3 class="modal-title">마음 전하실 곳</h3>
+      <div class="account-list">
+        <div class="account">
+          <div>
+            <p class="account-name">이현식</p>
+          </div>
+          <div class="account-actions">
+            <p class="account-bank">우리은행</p>
+            <p class="account-number">1002237448603</p>
+            <button class="button ghost account-copy" type="button" data-copy-account="1002237448603">복사</button>
+          </div>
+        </div>
+        <div class="account">
+          <div>
+            <p class="account-name">조지원</p>
+          </div>
+          <div class="account-actions">
+            <p class="account-bank">KB국민</p>
+            <p class="account-number">52940201326248</p>
+            <button class="button ghost account-copy" type="button" data-copy-account="52940201326248">복사</button>
+          </div>
+        </div>
+      </div>
+      <button class="button primary message-modal__action" type="button" data-account-close>닫기</button>
     </div>
   </div>
 

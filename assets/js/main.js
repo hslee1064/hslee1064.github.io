@@ -26,6 +26,9 @@
   const messageModal = document.getElementById('message-modal');
   const messageModalText = document.getElementById('message-modal-text');
   const messageModalCloseButtons = messageModal?.querySelectorAll('[data-message-close]');
+  const accountModal = document.getElementById('account-modal');
+  const accountOpenButton = document.querySelector('[data-account-open]');
+  const accountCloseButtons = accountModal?.querySelectorAll('[data-account-close]');
   const urlParams = new URLSearchParams(window.location.search);
   const hashParams = new URLSearchParams((window.location.hash || '').split('?')[1] || '');
   const visitorName = (urlParams.get('name') || hashParams.get('name') || '').trim();
@@ -45,8 +48,30 @@
     document.body.style.overflow = '';
   }
 
+  function openAccountModal() {
+    if (!accountModal) return;
+    accountModal.classList.add('is-open');
+    accountModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeAccountModal() {
+    if (!accountModal) return;
+    accountModal.classList.remove('is-open');
+    accountModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
   if (messageModal && messageModalCloseButtons?.length) {
     messageModalCloseButtons.forEach((btn) => btn.addEventListener('click', closeMessageModal));
+  }
+
+  if (accountOpenButton) {
+    accountOpenButton.addEventListener('click', openAccountModal);
+  }
+
+  if (accountModal && accountCloseButtons?.length) {
+    accountCloseButtons.forEach((btn) => btn.addEventListener('click', closeAccountModal));
   }
 
   if (personalMessageEl && visitorName) {
