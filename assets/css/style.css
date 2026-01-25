@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Parisienne";
+  src: url("../fonts/Parisienne-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #f7f4f0;
   --sand: #efe5dc;
@@ -87,7 +95,7 @@ body {
   margin: 0;
   color: #fff;
   font-size: clamp(36px, 11vw, 64px);
-  font-family: "Snell Roundhand", "Apple Chancery", "Bradley Hand", "Brush Script MT", "Segoe Script", "Comic Sans MS", cursive;
+  font-family: "Parisienne", "Snell Roundhand", "Apple Chancery", "Bradley Hand", "Brush Script MT", "Segoe Script", "Comic Sans MS", cursive;
   letter-spacing: 0.04em;
   text-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   white-space: nowrap;
@@ -95,7 +103,7 @@ body {
 
 .hero-photo__date {
   position: absolute;
-  top: calc(44% + 34px);
+  top: calc(44% + 44px);
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
