@@ -80,7 +80,7 @@ body {
 
 .hero-photo__frame img {
   position: absolute;
-  inset: 0;
+  inset: -8% 0 0;
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -89,12 +89,12 @@ body {
 
 .hero-photo__title {
   position: absolute;
-  top: 44%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
   color: #fff;
-  font-size: clamp(36px, 11vw, 64px);
+  font-size: clamp(40px, 12vw, 68px);
   font-family: "Parisienne", "Snell Roundhand", "Apple Chancery", "Bradley Hand", "Brush Script MT", "Segoe Script", "Comic Sans MS", cursive;
   letter-spacing: 0.04em;
   text-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
@@ -103,13 +103,14 @@ body {
 
 .hero-photo__date {
   position: absolute;
-  top: calc(44% + 44px);
+  bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
   color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(12px, 3.5vw, 16px);
-  font-weight: 600;
+  font-size: clamp(14px, 4vw, 18px);
+  font-family: "Parisienne", "Snell Roundhand", "Apple Chancery", "Bradley Hand", "Brush Script MT", "Segoe Script", "Comic Sans MS", cursive;
+  font-weight: 400;
   letter-spacing: 0.2em;
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
