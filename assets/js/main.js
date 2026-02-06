@@ -7,7 +7,8 @@
     const days = Math.floor(totalSeconds / 86400);
     const hours = Math.floor((totalSeconds % 86400) / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
-    return `${days}일 ${hours}시간 ${minutes}분 남았습니다`;
+    const seconds = totalSeconds % 60;
+    return `${days}일 ${hours}시간 ${minutes}분 ${seconds}초 남았습니다`;
   }
 
   function tick() {
@@ -18,7 +19,7 @@
 
   if (countdownEl) {
     tick();
-    setInterval(tick, 60 * 1000);
+    setInterval(tick, 1000);
   }
 
   const personalMessageEl = document.getElementById('personal-message');
